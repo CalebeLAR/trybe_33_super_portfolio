@@ -11,7 +11,7 @@ class Profile(models.Model):
     github = models.URLField()
     linkedin = models.URLField()
     # A propriedade bio deve ser um campo de texto sem tamanho máximo definido.
-    bio = models.TextFieldField()
+    bio = models.TextField()
 
     # O método __str__ da classe Profile deve retornar a propriedade name do perfil criado.
     def __str__(self):
