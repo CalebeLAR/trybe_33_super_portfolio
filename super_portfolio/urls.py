@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from projects.views import ProfileViewSet
+from projects.views import ProfileViewSet, ProjectViewSet
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -26,11 +26,12 @@ from rest_framework_simplejwt.views import (
 
 router = routers.DefaultRouter()
 router.register(r'profiles', ProfileViewSet)
-# a rota r'profiles' ja inclue dentro dela estas:
-#       GET profiles/
-#       POST profiles/<id_do_perfil>
-#       PATCH profiles/<id_do_perfil>
-#       DELETE profiles/<id_do_perfil>
+router.register(r'projects', ProjectViewSet)
+# as rotas r'rota' ja inclue dentro dela estas:
+#       GET rota/
+#       POST rota/<id_do_perfil>
+#       PATCH rota/<id_do_perfil>
+#       DELETE rota/<id_do_perfil>
 
 urlpatterns = [
     path("admin/", admin.site.urls),
