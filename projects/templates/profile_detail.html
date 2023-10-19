@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfil de Usuário</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="card">
+        <h1>{{ profile.name }}</h1>
+        <p><span>github:</span> {{ profile.github }}</p>
+        <p><span>linkedin:</span> {{ profile.linkedin }}</p>
+        <p><span>bio do Perfil:</span> {{ profile.bio }}</p>
+
+        <h4>Projetos</h4>
+    </div>
+</body>
+</html>
