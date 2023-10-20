@@ -23,10 +23,8 @@ class ProfileViewSet(viewsets.ModelViewSet):
         if request.method == "GET":
             profile_id = kwargs.get("pk")
             profile = get_object_or_404(Profile, pk=profile_id)
-            projects = profile.projects.all()
             context = {
                 "profile": profile,
-                "projects": projects,
             }
             return render(
                 request,
