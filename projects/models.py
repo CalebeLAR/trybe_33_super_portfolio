@@ -42,9 +42,8 @@ class Certificate(models.Model):
         related_name="certificate",
     )
     timestamp = models.DateTimeField(auto_now=True)
-    profiles = models.ManyToMany(
+    profiles = models.ManyToManyField(
         "Profile",
-        on_delete=models.CASCADE,
         related_name="certificates",
     )
 
