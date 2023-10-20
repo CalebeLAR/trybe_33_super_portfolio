@@ -38,7 +38,7 @@ class Certificate(models.Model):
     certifying_institution = models.ForeignKey(
         "CertifyingInstitution",
         on_delete=models.CASCADE,
-        related_name="certificate",
+        related_name="certificates",
     )
     timestamp = models.DateTimeField(auto_now=True)
     profiles = models.ManyToManyField(
