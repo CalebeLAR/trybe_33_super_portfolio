@@ -14,6 +14,17 @@
         <p><span>bio do Perfil:</span> {{ profile.bio }}</p>
 
         <h4>Projetos</h4>
+        {% for project in profile.projects.all%}
+            <p><span>projeto:</span> {{project.name}}</p>
+            <p><span>description:</span> {{project.description}}</p>
+            <p><span>github:</span> {{project.github_url}}</p>
+            <p><span>keyword:</span> {{project.keyword}}</p>
+            <p><span>key_skill:</span> {{project.key_skill}}</p>
+        {% endfor %}
+        {% for certificate in profile.certificates.all%}
+            <p><span>name: </span>{{certificate.name}}</p>
+            <p><span>institution: </span>{{certificate.certifying_institution}}</p>
+        {% endfor %}
     </div>
 </body>
 </html>
