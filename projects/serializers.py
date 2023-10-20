@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Profile, Project, CertifyingInstitution
+from .models import Profile, Project, CertifyingInstitution, Certificate
 
 
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
@@ -32,3 +32,18 @@ class CertifyingInstitutionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = CertifyingInstitution
         fields = ["id", "name", "url"]
+
+
+class CertificateSerializer(serializers.HyperlinkedModelSerializer):
+    certifying_institution = CertifyingInstitutionSerializer
+    profiles = ProfileSerializer
+
+    class Meta:
+        model = Certificate
+        fields = [
+            "id",
+            "name",
+            "certifying_institution",
+            "timestamp",
+            "profiles",
+        ]

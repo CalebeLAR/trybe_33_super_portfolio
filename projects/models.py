@@ -1,3 +1,4 @@
+import re
 from django.db import models
 
 
@@ -28,6 +29,24 @@ class Project(models.Model):
 class CertifyingInstitution(models.Model):
     name = models.CharField(max_length=100)
     url = models.URLField()
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+class Certificate(models.Model):
+    name = models.CharField(max_length=100)
+    certifying_institution = models.ForeignKey(
+        "CertifyingInstitution",
+        on_delete=models.CASCADE,
+        related_name="certificate",
+    )
+    timestamp = models.DateTimeField(auto_now=True)
+    profiles = models.ManyToMany(
+        "Profile",
+        on_delete=models.CASCADE,
+        related_name="certificates",
+    )
 
     def __str__(self):
         return f"{self.name}"
