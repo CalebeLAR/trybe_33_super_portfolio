@@ -1,1 +1,1 @@
--r requirements.txt  # não remova essa linha!
+-r requirements.txt
